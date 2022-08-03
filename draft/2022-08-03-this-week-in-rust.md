@@ -68,8 +68,30 @@ If you are a Rust project owner and are looking for contributors, please submit 
 
 ### Rust Compiler Performance Triage
 
-<!-- Perf results go here -->
+A good week! We had one regression from [#99123](https://github.com/rust-lang/rust/pull/99123)
+that could use further study, but we had a huge swath of improvements. The downward trend of the
+[performance graph summary](https://perf.rust-lang.org/?start=&end=&kind=percentfromfirst&stat=instructions%3Au)
+is striking. Perhaps best of all: Only *one* rollup PR impacted performance this week which makes
+things so much easier to evaluate! Great work everyone!
 
+Triage done by **@pnkfelix**.
+Revision range: [50166d5e..792bc5a0](https://perf.rust-lang.org/?start=50166d5e5e82ca795306824decbe4ffabcc23d3d&end=792bc5a0102d0973d42183a2b267850bb905236f&absolute=false&stat=instructions%3Au)
+
+**Summary**:
+
+|            | mean | max | count |
+|:----------:|:----:|:---:|:-----:|
+| Regressions 😿 <br /> (primary) | 0.4% | 0.7% | 5     |
+| Regressions 😿 <br /> (secondary) | 0.6% | 1.1% | 11    |
+| Improvements 🎉 <br /> (primary) | -0.8% | -3.3% | 140   |
+| Improvements 🎉 <br /> (secondary) | -0.9% | -11.0% | 95    |
+| All 😿🎉 (primary) | -0.8% | -3.3% | 145   |
+
+
+1 Regressions, 4 Improvements, 4 Mixed; 1 of them in rollups
+44 artifact comparisons made in total
+
+Full triage report available [here](https://github.com/rust-lang/rustc-perf/blob/master/triage/2022-08-02.md)
 ### Call for Testing
 
 An important step for RFC implementation is for people to experiment with the
